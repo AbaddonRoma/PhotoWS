@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {AuthComponent} from './auth/auth.component';
+import {AdminGuard} from './admin.guard';
 
 const routes: Routes = [
   {
@@ -9,10 +10,11 @@ const routes: Routes = [
   },
   {
     path: 'admin',
+    canActivate: [AdminGuard],
     loadChildren: './admin/admin.module#AdminModule'
   },
   {
-    path: 'auth',
+    path: 'login',
     component: AuthComponent
   },
   {
