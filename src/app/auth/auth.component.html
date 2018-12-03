@@ -1,1 +1,21 @@
-<h1>AUTH PAGE</h1>
+<main>
+  <div class="wrapper">
+    <div class="container-fluid">
+      <div class="row d-flex justify-content-around">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+          <form [formGroup]="authForm">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" class="form-control" placeholder="email" id="email" formControlName="email">
+            </div>
+            <div class="form-group">
+              <label for="psd">Пароль</label>
+              <input type="password" class="form-control" placeholder="password" id="psd" formControlName="password">
+            </div>
+            <input type="button" class="btn btn-dark" (click)="login(authForm.value.email, authForm.value.password)" value="Увійти">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

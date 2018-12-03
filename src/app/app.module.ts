@@ -3,15 +3,15 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthComponent } from './auth/auth.component';
 import { SharedComponent } from './shared/shared.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {AdminGuard} from './admin.guard';
+import {AdminInterceptor} from './admin/admin-interceptor';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthComponent,
     SharedComponent
   ],
   imports: [
@@ -19,7 +19,13 @@ import {HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AdminInterceptor,
+    multi: true
+  },
+    AdminGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

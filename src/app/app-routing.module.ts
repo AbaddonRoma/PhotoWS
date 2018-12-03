@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {AuthComponent} from './auth/auth.component';
 import {AdminGuard} from './admin.guard';
 
 const routes: Routes = [
@@ -9,19 +8,20 @@ const routes: Routes = [
     loadChildren: './user/user.module#UserModule'
   },
   {
+    path: '',
+    redirectTo: '',
+    pathMatch: 'full'
+  },
+  {
     path: 'admin',
     canActivate: [AdminGuard],
     loadChildren: './admin/admin.module#AdminModule'
   },
   {
     path: 'login',
-    component: AuthComponent
-  },
-  {
-    path: '',
-    redirectTo: '',
-    pathMatch: 'full'
+    loadChildren: './auth/auth.module#AuthModule'
   }
+
 ];
 
 @NgModule({
