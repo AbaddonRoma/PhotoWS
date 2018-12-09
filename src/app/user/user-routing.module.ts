@@ -8,7 +8,7 @@ const routes: Routes = [
     component: UserComponent
   },
   {
-    path: 'category',
+    path: 'category/:id',
     loadChildren: './category/category.module#CategoryModule'
   }
 ];

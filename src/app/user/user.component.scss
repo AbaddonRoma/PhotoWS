@@ -1,0 +1,15 @@
+h1 {
+  text-align: center;
+}
+
+section {
+  border: 2px 0 2px 0 solid black;
+}
+.category {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  border: 1px solid red;
+  margin: 50px calc(25% - 101px) 50px calc(25% - 101px);
+  cursor: pointer;
+}

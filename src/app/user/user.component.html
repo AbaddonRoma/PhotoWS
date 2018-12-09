@@ -1,2 +1,12 @@
 <h1>USER</h1>
-<a routerLink="category">Category</a>
+
+
+<section>
+  <h1>Gallery</h1>
+  <a *ngFor="let cat of Categories" [routerLink]="['/category', cat]">
+    <div class="category">
+      {{cat}}
+    </div>
+  </a>
+
+</section>
