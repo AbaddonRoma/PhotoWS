@@ -1,12 +1,41 @@
-<h1>USER</h1>
+<div class="home-container">
+    <section class="home-slider">
+        <ngb-carousel *ngIf="images">
+            <ng-template ngbSlide *ngFor="let cat of Categories; let i = index">
+                <div class="size slide{{i+1}}">
+                    <div class="carousel-caption">
+                        <div (click)="goToCategory(cat.eng)">
+                            <h1>{{cat.eng}}</h1>
+                            <h2>{{cat.ua}}</h2>
+                            <div class="carousel-caption__view-category">Перегляд</div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-carousel>
+    </section>
+    <section class="home-content container-fluid d-flex flex-column justify-content-between">
+        <div class="row d-flex justify-content-between">
+            <p class="home-content__header-label">TANIA KANISHCHEVA</p>
+            <p class="home-content__header-contacts">Контакти</p>
+        </div>
+        <div class="row d-flex justify-content-between">
+            <div class="home-content__social">
+                <a href="#">instagram </a>
+                <a href="#"> facebook</a>
+            </div>
+            <p class="home-content__about-me">Про мене</p>
+        </div>
+    </section>
 
-
-<section>
-  <h1>Gallery</h1>
-  <a *ngFor="let cat of Categories" [routerLink]="['/category', cat]">
-    <div class="category">
-      {{cat}}
+    <div class="home-categories">
+        <section>
+            <h1>Gallery</h1>
+            <a *ngFor="let cat of Categories" [routerLink]="['/category', cat]">
+                <div class="category">
+                    {{cat}}
+                </div>
+            </a>
+        </section>
     </div>
-  </a>
-
-</section>
+</div>

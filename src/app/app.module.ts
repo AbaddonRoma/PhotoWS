@@ -7,6 +7,7 @@ import { SharedComponent } from './shared/shared.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AdminGuard} from './admin.guard';
 import {AdminInterceptor} from './admin/admin-interceptor';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -15,9 +16,10 @@ import {AdminInterceptor} from './admin/admin-interceptor';
     SharedComponent
   ],
   imports: [
+    NgbModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
